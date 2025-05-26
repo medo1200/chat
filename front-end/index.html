@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="styling.css">
+</head>
+<body>
+    <h1>Welcome to Tegar chat project</h1>
+    <div class="chatContainer">
+        <div class="chatHead">
+            <h2>Tegar</h2>
+        </div>
+        
+        <div class="chatBody">
+            <div id="chatBody"></div>
+            <!-- render messages inside -->
+        </div>
+
+        <form action="/sendMessage" method="post">
+            <input type="text" placeholder="Your name.." name="username" id="username" autocomplete="off">
+            <input type="text" name="chatMessage" placeholder="Enter your message.." required autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <form action="/deleteAll" method="post">
+        <button type="submit" name="delete" id="delete">Delete All</button>
+    </form>
+
+
+
+    <script>
+        const username = document.querySelector('#username');
+
+
+
+        fetch('/postMessage')
+        .then(result => result.json())
+        .then(data => {
+            const chatBody = document.getElementById('chatBody');
+            if (data.length <= 0){
+                chatBody.innerHTML = "No conversation yet!";
+            } else {
+                chatBody.innerHTML = '<ul>';
+                for (let i = 0 ; i < data.length; i++){
+                    let theTakenData = data[i];
+                    chatBody.innerHTML += `<li>${theTakenData.name}: ${theTakenData.message}</li>`;    
+                }
+                chatBody.innerHTML += '</ul>';
+
+            }
+            chatBody.scrollTop = chatBody.scrollHeight;   // to move down
+        })
+
+    </script>
+</body>
+</html>

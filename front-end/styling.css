@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(78, 35, 118);
+    color: white;
+    text-align: center;
+}
+
+.chatContainer {
+    width: 90vw;
+    height: auto;
+    margin: auto;
+    border: 2px solid yellow;
+}
+
+#chatBody {
+    border: 2px solid rgb(152, 152, 25);
+    list-style-type: none;
+    height: 200px;
+    overflow-y: scroll;
+    font-size: large;
+    
+}
+
+#delete{
+    color: white;
+    background-color: red;
+    font-size: 100%;
+}
