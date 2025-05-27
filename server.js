@@ -6,7 +6,7 @@ const
     app = express(),
     pg = require('pg'),
     PORT = 3000,
-    DATABASE = process.env.DATABASE,
+    DATABASE = process.env.DATABASE_URL,
     client = new pg.Client(DATABASE);
 
 
