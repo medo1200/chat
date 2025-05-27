@@ -38,13 +38,14 @@ app.post('/sendMessage' , ( req , res ) => {
 })
 
 app.post('/deleteAll', (req , res) =>{
-    console.log("Deleting messagestable !")
+    console.log("Dropping table: messagestable !")
     client.query("drop table messagestable;")
     .then( () => {
-        console.log("Creating messagestable again!");
+        console.log("Creating table: messagestable !");
         client.query('create table messagestable (name varchar(255) , message varchar(255)) ; ')
         .then( () => {
             console.log("Table created successfully !");
+            console.log(" res.redirect('/') ");
             res.redirect('/');
         })
     })
