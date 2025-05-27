@@ -34,25 +34,30 @@
     <script>
         const username = document.querySelector('#username');
 
+        function fetchMessages() {
+            
+                    fetch('/postMessage')
+                    .then(result => result.json())
+                    .then(data => {
+                        const chatBody = document.getElementById('chatBody');
+                        if (data.length <= 0){
+                            chatBody.innerHTML = "No conversation yet!";
+                        } else {
+                            chatBody.innerHTML = '<ul>';
+                            for (let i = 0 ; i < data.length; i++){
+                                let theTakenData = data[i];
+                                chatBody.innerHTML += `<li>${theTakenData.name}: ${theTakenData.message}</li>`;    
+                            }
+                            chatBody.innerHTML += '</ul>';
+            
+                        }
+                        chatBody.scrollTop = chatBody.scrollHeight;   // to move down
+                    })                
 
-
-        fetch('/postMessage')
-        .then(result => result.json())
-        .then(data => {
-            const chatBody = document.getElementById('chatBody');
-            if (data.length <= 0){
-                chatBody.innerHTML = "No conversation yet!";
-            } else {
-                chatBody.innerHTML = '<ul>';
-                for (let i = 0 ; i < data.length; i++){
-                    let theTakenData = data[i];
-                    chatBody.innerHTML += `<li>${theTakenData.name}: ${theTakenData.message}</li>`;    
-                }
-                chatBody.innerHTML += '</ul>';
-
-            }
-            chatBody.scrollTop = chatBody.scrollHeight;   // to move down
-        })
+            
+        }
+        // Run fetchMesssages every 100ms
+        setInterval( fetchMessages() , 100);
 
     </script>
 </body>
