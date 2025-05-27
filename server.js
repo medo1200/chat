@@ -7,13 +7,8 @@ const
     pg = require('pg'),
     PORT = process.env.PORT || 3000,
     DATABASE = process.env.DATABASE_URL,
-    //client = new pg.Client(DATABASE);
-    client = new pg.Client({
-      connectionString: DATABASE,
-      ssl: {
-        rejectUnauthorized: false
-      }
-    });
+    client = new pg.Client(DATABASE);
+
 
 app.use(express.json())
 app.use(express.urlencoded({extended : true}));
