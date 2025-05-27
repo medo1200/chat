@@ -17,7 +17,7 @@ app.listen(PORT , () =>  `listening on port ${PORT}`);
 app.get('/' , (req , res) => {
     res.sendFile(__dirname + "/front-end/index.html" );
     console.log("Path opened now from someone ");
-}
+});
 
 app.get('/postMessage' , (req , res) => {
     client.query('select * from messagestable;').then(myTableResult => {
