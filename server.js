@@ -37,7 +37,7 @@ app.post('/sendMessage' , ( req , res ) => {
     })
 })
 
-app.post('/deleteAll', (req , res) =>{
+app.get('/deleteAll', (req , res) =>{
     console.log("Dropping table: messagestable !")
     client.query("drop table messagestable;")
     .then( () => {
