@@ -10,7 +10,7 @@ const
 
 app.use(express.json())
 app.use(express.urlencoded({extended : true}));
-//app.use(express.static(__dirname + '/front-end/')); // to see the files like css
+app.use(express.static(__dirname + '/front-end/')); // to see the files like css
 
 
 app.listen(PORT , () =>  `listening on port ${PORT}`);
