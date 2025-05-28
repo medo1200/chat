@@ -10,24 +10,22 @@ const
 
 app.use(express.json())
 app.use(express.urlencoded({extended : true}));
+//app.use(express.static(__dirname + '/front-end/')); // to see the files like css
 
 
 app.listen(PORT , () =>  `listening on port ${PORT}`);
 
-app.get('/' , (req , res) => {
-    console.log("Path opened now from someone ");
-    console.log("Person pressed send button , Details :");
-    console.log(`req.host = ${req.host} , req.ip = ${req.ip}`);
-    app.use(express.static(__dirname + '/front-end/')); // to see the files like css
-});
-
 app.get('/postMessage' , (req , res) => {
+    
     client.query('select * from messagestable;').then(myTableResult => {
         res.json(myTableResult.rows);
     })
 } );
 
 app.post('/sendMessage' , ( req , res ) => {
+    console.log("Path opened now from someone ");
+    console.log("Person pressed send button , Details :");
+    console.log(`req.host = ${req.host} , req.ip = ${req.ip}`);
     
     const inputsTaken = [req.body.username , req.body.chatMessage];
     const sqlSentence = `insert into messagestable (name , message) values ($1, $2) ;`;
