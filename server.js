@@ -17,6 +17,7 @@ app.listen(PORT , () =>  `listening on port ${PORT}`);
 app.get('/' , (req , res) => {
     res.sendFile(__dirname + "/front-end/index.html" );
     console.log("Path opened now from someone ");
+    console.log(`req.host = ${req.host} , req.ip = ${req.ip}`);
 });
 
 app.get('/postMessage' , (req , res) => {
