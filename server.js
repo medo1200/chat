@@ -17,7 +17,6 @@ app.listen(PORT , () =>  `listening on port ${PORT}`);
 app.get('/' , (req , res) => {
     res.sendFile(__dirname + "/front-end/index.html" );
     console.log("Path opened now from someone ");
-    console.log(`req.host = ${req.host} , req.ip = ${req.ip}`);
 });
 
 app.get('/postMessage' , (req , res) => {
@@ -27,6 +26,8 @@ app.get('/postMessage' , (req , res) => {
 } );
 
 app.post('/sendMessage' , ( req , res ) => {
+    console.log("Person pressed send button , Details :");
+    console.log(`req.host = ${req.host} , req.ip = ${req.ip}`);
     const inputsTaken = [req.body.username , req.body.chatMessage];
     const sqlSentence = `insert into messagestable (name , message) values ($1, $2) ;`;
     client.query(sqlSentence , inputsTaken).then( () => {
