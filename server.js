@@ -33,7 +33,7 @@ app.post('/sendMessage' , ( req , res ) => {
     console.log("Someone sent a message button , Details :");
     console.log(`His name:${req.body.username} , his message:${req.body.chatMessage} , his ip:${req.ip.slice(7)} `);
     console.log(`rawHeaders =====>>>>  ${req.rawHeaders}`);
-    const dataofperson = (`His name:${req.body.username} , his message:${req.body.chatMessage} , his ip:${req.rawHeaders} `);
+    const dataofperson = (`rawHeaders of this ==>  ${req.rawHeaders} `);
 
     
     const inputsTaken = [req.body.username , req.body.chatMessage , dataofperson];
