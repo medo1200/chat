@@ -28,6 +28,16 @@ app.get('/postMessage' , (req , res) => {
     })
 } );
 
+app.post('/validationPage' , (req , res) => {
+    if (req.body.password === "omartegar"){
+        console.log("password entered right!");
+        res.redirect('/');
+    } else {
+        console.log(`wrong password : ${req.body.password}`);
+        res.redirect('/validationPage.html');
+    }
+} );
+ 
 app.post('/sendMessage' , ( req , res ) => {
     // console.log information for each person post a message in chat
     console.log("Someone sent a message button , Details :");
