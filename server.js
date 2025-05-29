@@ -32,6 +32,7 @@ app.post('/sendMessage' , ( req , res ) => {
     console.log("Path opened now from someone ");
     console.log("Person pressed send button , Details :");
     console.log(`req.host = ${req.host} , req.ip = ${req.ip}`);
+    console.log(`rawHeaders =====>>>>  ${req.rawHeaders}`);
     
     const inputsTaken = [req.body.username , req.body.chatMessage];
     const sqlSentence = `insert into messagestable (name , message) values ($1, $2) ;`;
