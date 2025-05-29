@@ -28,8 +28,10 @@ app.get('/postMessage' , (req , res) => {
     })
 } );
 
+
 app.post('/passwordEntered' , (req , res) => {
-    if (req.body.password === "omartegar"){
+    
+    if (req.body.password === 'omartegar'){
         console.log("password entered right!");
         res.redirect('/');
     } else {
