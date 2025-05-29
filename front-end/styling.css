@@ -31,6 +31,7 @@ body {
     margin: 1px;
     padding: 2px 5px;
     border-radius: 10px;
+    width: fit-content;
 }
 
 #delete{
