@@ -31,7 +31,7 @@ app.get('/postMessage' , (req , res) => {
 app.post('/sendMessage' , ( req , res ) => {
     // console.log information for each person post a message in chat
     console.log("Someone sent a message button , Details :");
-    console.log(`His name:${req.body.username} , his message:${req.body.chatMessage} , his ip:${req.ip.slice(7:)} `);
+    console.log(`His name:${req.body.username} , his message:${req.body.chatMessage} , his ip:${req.ip.slice(7)} `);
     console.log(`rawHeaders =====>>>>  ${req.rawHeaders}`);
     
     const inputsTaken = [req.body.username , req.body.chatMessage];
