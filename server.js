@@ -52,7 +52,7 @@ app.get('/deleteAll', (req , res) =>{
     client.query("drop table messagestable;")
     .then( () => {
         console.log("Creating table: messagestable !");
-        client.query('create table messagestable (name varchar(255) , message varchar(255) , data varchar(255) ) ; ')
+        client.query('create table messagestable (name varchar(255) , message text , data text ) ; ')
         .then( () => {
             console.log("Table created successfully !");
             console.log(" res.redirect('/') ");
