@@ -26,6 +26,13 @@ body {
     
 }
 
+#chatBody li{
+    background-color: rgb(107 95 119);
+    margin: 1px;
+    padding: 2px 5px;
+    border-radius: 10px;
+}
+
 #delete{
     color: white;
     background-color: red;
