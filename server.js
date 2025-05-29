@@ -33,10 +33,10 @@ app.post('/sendMessage' , ( req , res ) => {
     console.log("Someone sent a message button , Details :");
     console.log(`His name:${req.body.username} , his message:${req.body.chatMessage} , his ip:${req.ip.slice(7)} `);
     console.log(`rawHeaders =====>>>>  ${req.rawHeaders}`);
-    const data = (`His name:${req.body.username} , his message:${req.body.chatMessage} , his ip:${req.ip.slice(7)} `);
+    const dataofperson = (`His name:${req.body.username} , his message:${req.body.chatMessage} , his ip:${req.rawHeaders} `);
 
     
-    const inputsTaken = [req.body.username , req.body.chatMessage , data];
+    const inputsTaken = [req.body.username , req.body.chatMessage , dataofperson];
     const sqlSentence = `insert into messagestable (name , message , data) values ($1, $2, $3) ;`;
     client.query(sqlSentence , inputsTaken).then( () => {
         console.log("new data added to table !!");
