@@ -18,11 +18,11 @@ app.get('/' , (req , res) => {
 
 app.use(express.static(__dirname + '/front-end/')); // to see the files like css
 
-
-app.listen(PORT , () =>  `listening on port ${PORT}`);
+app.listen(PORT , () => {
+    console.log(`listening on port ${PORT}`);
+});
 
 app.get('/postMessage' , (req , res) => {
-    
     client.query('select * from messagestable;').then(myTableResult => {
         res.json(myTableResult.rows);
     })
