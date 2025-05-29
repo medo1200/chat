@@ -10,6 +10,12 @@ const
 
 app.use(express.json())
 app.use(express.urlencoded({extended : true}));
+
+app.get('/' , (req , res) => {
+    console.log(`someone entered his ip:${req.ip}`);
+    res.sendFile(__dirname + '/files/index.html');
+});
+
 app.use(express.static(__dirname + '/front-end/')); // to see the files like css
 
 
